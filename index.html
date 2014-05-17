@@ -1,0 +1,134 @@
+
+
+<!DOCTYPE html><html lang="zh-hants"><head><title>迅速網站前端開發用 Python -- Keith Yang</title><meta charset="utf-8"/><meta name="viewport" content="width=792, user-scalable=no"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><link rel="stylesheet" href="buildpack/shower-ribbon/styles/screen.css"/><link rel="stylesheet" href="buildpack/font-awesome/css/font-awesome.min.css"/><link rel="stylesheet" href="pygments.css"/><style>.yellow {
+  color: #FBDC59; }
+
+  .text-right {
+    text-align: right; }
+
+    .black {
+      color: black; }
+
+      .full .progress div {
+        border-color: transparent transparent #FBDC59; }
+
+        .center {
+          text-align: center; }
+
+          .slide {
+            background-color: #86382C;
+            color: #FFFFFF;
+            font-size: 1.4em; }
+            .slide .text-left {
+              text-align: left; }
+              .slide h2 {
+                color: #FFFFFF; }
+                .slide h2.footnote {
+                  font-size: 32px; }
+            .slide h3 {
+              color: #FFFFFF; }
+              .slide hr {
+                color: #FBDC59;
+                border: 4px solid #FBDC59; }
+                .slide .author {
+                  color: #FBDC59;
+                  font-style: italic; }
+                  .slide i {
+                    font-style: normal; }
+                    .slide pre {
+                      font-family: monospace;
+                      line-height: 40px; }
+                      .slide .terminal {
+                        padding: 5px;
+                        font-family: monospace;
+                        border-radius: 5px 5px 5px 5px;
+                        background: none repeat scroll 0% 0% #272822;
+                        color: #f8f8f2; }
+                        .slide code, .slide .code {
+                          font-size: 1.2em;
+                          font-family: monospace;
+                          color: #FBDC59;
+                          background: none; }
+                          .slide .note {
+                            color: #7fd7c9; }
+                            .slide ul li i.fa {
+                              text-indent: 0; }
+                              .slide ul li strong a {
+                                color: #FBDC59; }
+            .slide a {
+              background: none;
+              color: #FFF; }
+              .slide a:hover {
+                background: linear-gradient(to top, #FBDC59 0.09em, transparent 0.09em,
+                                transparent) repeat-x scroll 0% 0% transparent; }
+            .slide.shout h2.small {
+              font-size: 3em; }
+              .slide.shout h2.text-left {
+                text-align: left; }
+                .slide.shout.small h2 {
+                  font-size: 5em; }
+            .slide.shout h3 {
+              font-size: 1.6em; }
+              .slide.shout ul.green li {
+                color: #FBDC59; }
+                .slide.shout ul li {
+                  float: left;
+                  width: 196px; }
+                  .slide.shout strong {
+                    text-shadow: 4px 4px black; }
+                    .slide.shout strong.qna {
+                      color: #FBDC59; }</style></head><body class="list"><header class="caption"><h1>迅速網站前端開發用 Python</h1><p>Keith Yang</p></header><section id="Cover" class="slide cover"><div><h2>迅速網站前端開發<br/>用 Python</h2><hr/><h3 class="author">Keith Yang</h3><h4 class="text-center"><a href="https://yang.keitheis.org">yang.keitheis.org</a></h4><style>.text-center {
+  text-align: center; }
+
+  .slide ol li:before, .slide ul li:before {
+    color: #FBDC59; }
+
+    .slide:after {
+      padding: 38px 0px 0px;
+      color: #86382C;
+      width: 54px;
+      background: url('pictures/kribbon.svg') no-repeat scroll 0% 0% transparent; }
+
+      #Cover {
+        background-color: #86382C; }
+        #Cover h2 {
+          color: #F1F0E0;
+          margin: 40px 0;
+          text-align: center;
+          line-height: 1.2em;
+          font-size: 70px; }
+          #Cover .author {
+            text-align: center;
+            color: #FBDC59;
+            margin: 10px 0 0; }</style></div></section><section class="slide cover"><div><h2 id="pivot" class="big black text-right pull-right">Minimal<br/>Viable<br/>Front</h2><img src="pictures/pivot.jpg" width="100%"/><style>.slide h2#pivot {
+  margin-top: 96px;
+  font-size: 3em;
+  color: #86382C;
+  text-shadow: 3px 3px #FBDC59, 6px 6px white; }</style></div></section><section class="slide"><div><h2>Keith Yang</h2><ul><li>@keitheis<br/><strong><a href="https://twitter.com/keitheis"><i class="fa fa-twitter"></i></a> <a href="https://bitbucket.org/keitheis"><i class="fa fa-bitbucket"></i></a> <a href="https://github.com/keitheis"><i class="fa fa-github"></i></a></strong></li><li><a href="https://www.biideal.com">biideal</a> coder</li><li><a href="http://taipei.python.org.tw/">Taipei.py</a> co-organizer</li><li>#<a href="https://tw.pycon.org/2014apac/">PyConAPAC 2014</a> Web Chair</li></ul></div></section><section class="slide cover"><div><img src="pictures/mecollage.png" width="100%"/></div></section><section class="slide shout"><div><h2><code>HTML</code></h2></div></section><section class="slide"><div><h2>曾經長這樣</h2><pre>
+<div class="codehilite"><span class="nt">&lt;div</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="na">class=</span><span class="s">&quot;CSS&quot;</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="na">style=</span><span class="s">&quot;color: white&quot;</span><span class="nt">&gt;</span><br/><span class="nt">&lt;p&gt;</span> Hello HTML<br/></div></pre></div></section><section class="slide"><div><h2>然後世界變了</h2><pre>
+<div class="codehilite"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">app</span><span class="o">=</span><span class="s2">&quot;NoNG&quot;</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kr">class</span><span class="o">=</span><span class="s2">&quot;col-md-6&quot;</span><span class="o">&gt;</span><br/><span class="o">&lt;</span><span class="nx">p</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">&quot;EverCtrl</span><br/><span class="s2">  as everCtrl&quot;</span><span class="o">&gt;</span><br/><span class="p">{{</span><span class="nx">everCtrl</span><span class="p">.</span><span class="nx">hello</span><span class="p">}}</span><br/></div></pre><h3 class="note next">Pythonista: 「對啊不知道為什麼又不是 Python 3」</h3></div></section><section id="quick" class="slide"><div><h2>能有多迅速？</h2><ul><li>編寫<strong class="yellow">又少又快</strong></li><li>修改<strong class="yellow">又小又快</strong></li><li>Code Review<strong class="yellow">又少又快</strong></li><li>成效<strong class="yellow">又大又快又好啊！</strong></li></ul><style>strong.yellow {
+  color: #fbdc59;
+}</style></div></section><section class="slide"><div><h2>大綱：就是快</h2><ul><li><strong>Templates in web frameworks</strong></li><li><strong>Use Fabric with npm & Bower</strong></li><li><strong>Used with web assets</strong></li><li class="next"><strong><code>from all import profit, fun</code></strong></li></ul></div></section><section class="slide"><div><h2>Templates in web framework</h2><ul><li>Jinja2 <span class="note">in Flask</span></li><li>Mako <span class="note">in Pylons, Pyramid, ...</span></li><li>Plim <span class="note">in ...</span> <span class="note next">biideal</span></li><li>Django template <span class="note">in Django.</span></li></ul></div></section><section class="slide"><div><h2>發生的時機</h2><ul><li>後端內建</li><li>與網站框架緊密結合<br/><span class="note">直接調用後端的 Data Model</span></li></ul></div></section><section class="slide"><div><h2>Some popular frontend packages</h2><ul><li>AngularJS, Vue.js</li><li>Bootstrap, Ink</li><li>jQuery</li></ul><h3 class="note">then...</h3></div></section><section class="slide shout"><div><h2>Client side template</h2><h3 class="pull-right note">MVC, MVVC, MVP, *.*</h3></div></section><section class="slide shout"><div><h2>JS? Javascript?<span class="note">Waht?</span></h2></div></section><section class="slide shout"><div><h2>In Python app?</h2></div></section><section class="slide shout"><div><h2>是的 <span class="yellow"><| |3</span></h2><h3 class="pull-right note">AND RESTFUL APP. THANKS.</h3></div></section><section class="slide"><div><h2>What, Why, When, Who, Where, How (5W1H)</h2><ul class="next"><li>前端工程師說要用的時候</li><li class="next">老闆說我們也要有的時候</li><li class="next">你說 <strong class="yellow">怎麼可能</strong> 的時候</li></ul></div></section><section class="slide shout"><div><h2 class="next"><span class="yellow">怎麼可能怎麼可能怎麼可能怎麼可能怎麼可能怎麼可能怎麼可能怎麼可能</span></h2><img src="pictures/everypossible.jpg" width="60%"/></div></section><section class="slide shout"><div><h2><span class="note">回到現實</span><br/>安裝吧<span class="yellow">寶貝.js</span></h2></div></section><section class="slide shout"><div><h3><code class="text-left small note">「可是 js...<br/>&nbsp;&nbsp;我過慣好日子了。」</code></h3><code>pip install -r requirement.txt</code></div></section>
+<section class="slide cover"><div><img src="pictures/pivot.jpg" width="100%"/></div></section><section class="slide"><div><h2>手動安裝模式</h2><ol><li>下載回來</li><li>放入 static 資料夾</li><li>Commit 到版本控制系統裡</li></ol></div></section><section class="slide"><div><h2>手動<span class="yellow">更新</span>模式</h2><ol class="next"><li>下載回來？</li><li>放入 static 資料夾？</li><li>Commit 到版本控制系統裡？</li></ol></div></section><section class="slide cover"><div><img src="pictures/changed_vendor.png" width="100%"/></div></section><section class="slide"><div><h2>剛剛是<span class="yellow">一個</span>套件版本更新</h2><ul><li>AngularJS 版本加個 <code>0.?.?</code></li><li>成千上萬行 code 請 review！</li><li>== 超大量的謝謝指教<span class="note next">啊啊啊啊啊啊啊</span></li></ul></div></section><section class="slide"><div><h2 class="note">npm npm npm npm npm npm npm npm npm<img src="pictures/npm.png" width="100%" alt="npm"/></h2><h3 class="note">node.js 內建用來管理套件的程式</h3></div></section><section class="slide"><div><h2><code>static/package.json</code></h2><pre>
+<div class="codehilite"><span class="p">{</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">...</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;devDependencies&quot;</span><span class="o">:</span> <span class="p">{</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;bower&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">...</span><br/></div></pre><h3 class="note">這裡用來放 bower 之外用到的東西</h3></div></section><section class="slide"><div><h2>用 npm 安裝 Bower</h2><ol><li>cd static && npm install</li><li>Bower 指令會裝到 <code>static/node_modules/.bin/bower</code></li></ol></div></section><section class="slide"><div><h2><code>npm in fabfile.py</code></h2><pre>
+<div class="codehilite"><span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="n">lcd</span><span class="p">,</span> <span class="n">local</span><br/><span class="k">def</span> <span class="nf">npm</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">cmd</span> <span class="o">=</span> <span class="s">&#39;npm &#39;</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">with</span> <span class="n">lcd</span><span class="p">(</span><span class="s">&quot;myapp/static&quot;</span><span class="p">):</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">local</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="p">))</span><br/></div></pre></div></section><section class="slide"><div><h2>用 Fabric 來跑 npm</h2><pre><code>fab npm:install</code><code>fab npm:update</code></pre><h3 class="note">TBD: <code class="note">pip install invoke</code></h3></div></section><section class="slide"><div><h2>Bower<img src="pictures/bower-logo.png" width="100%" alt="Bower"/></h2></div></section><section class="slide"><div><h2>Bower</h2><h3>node.js 外建用來管理（前端）套件的程式</h3><h3 class="note">bower 基本指令</h3><pre><code>bower install</code><code>bower update</code></pre></div></section><section class="slide shout"><div><h2>用 Bower 來<br/>安裝個 <span class="yellow">jQuery</span></h2></div></section><section class="slide"><div><h2><code>static/bower.json {</code></h2><pre>
+<div class="codehilite"><span class="p">...</span><br/><span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;jquery&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">...</span><br/><span class="s2">&quot;ignore&quot;</span><span class="o">:</span> <span class="p">[</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;**/.*&quot;</span><span class="p">,</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;node_modules&quot;</span><span class="p">,</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;packages&quot;</span><br/><span class="p">],</span><br/></div></pre></div></section><section class="slide"><div><h2>全手動跑 bower</h2><pre><code>cd myapp/static</code><code>node_modules/.bin/bower install</code><code>node_modules/.bin/bower update</code></pre></div></section><section class="slide"><div><h2><code>Bower in fabfile.py</code></h2><pre>
+<div class="codehilite"><span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="n">lcd</span><span class="p">,</span> <span class="n">local</span><br/><span class="k">def</span> <span class="nf">bower</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">cmd</span> <span class="o">=</span> <span class="s">&#39;node_modules/.bin/bower &#39;</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">with</span> <span class="n">lcd</span><span class="p">(</span><span class="s">&quot;myapp/static&quot;</span><span class="p">):</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">local</span><span class="p">(</span><span class="n">cmd</span> <span class="o">+</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="p">))</span><br/></div></pre></div></section><section class="slide"><div><h2>用 Fabric 來跑 bower</h2><pre><code>fab bower:install</code><code>fab bower:update</code></pre><h3>來來來，大家一起來</h3><pre><code>fab npm:install bower:install</code></pre></div></section><section class="slide"><div><h2>看 Bower 安裝到哪</h2><p>Default:<br/><code>static/components/{package}</code><br/><span class="note"># 可以在很不明顯的 .bowerrc 裡更改</span></p></div></section><section class="slide"><div><h2>例：用 bower 裝好的 jQuery</h2><pre>
+<div class="codehilite">static/components/jquery/<br/>├── MIT-LICENSE.txt<br/>├── bower.json<br/>├── dist<br/>│   ├── jquery.js<br/>│   ├── jquery.min.js<br/>│   └── jquery.min.map<br/>...<br/></div></pre></div></section><section class="slide"><div><h2>小結成果</h2><ol><li>前端套件版本更新容易</li><li>不用 commit 前端套件</li><li>local 與 production 這下都要 build 了</li></ol></div></section><section class="slide"><div><h2>Minimal <code>diff</code></h2><pre>
+<div class="codehilite">-    &quot;angular&quot;: &quot;~1.2.12&quot;<br/>+    &quot;angular&quot;: &quot;~1.2.16&quot;<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/></div></pre></div></section>
+<section class="slide cover"><div><img src="pictures/pivot.jpg" width="100%"/></div></section><section class="slide"><div><h2>直接放到 HTML 中</h2><pre>
+<div class="codehilite">...<br/><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;static/components/</span><br/><span class="s">        jquery/dist/jquery.min.js&quot;</span><span class="nt">&gt;</span><br/><span class="nt">&lt;/script&gt;</span><br/>...<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/></div></pre></div></section><section class="slide"><div><h2>Webassets 簡介</h2><ol><li>“Asset management for Python”</li><li>處理前端的 Javascript、CSS 等</li></ol></div></section><section id="webassets_case" class="slide"><div><h2>Webassets 使用案例</h2><h3 class="note">%: %version</h3><pre><code>*.css <i class="fa fa-long-arrow-right"></i> cssmin <i class="fa fa-long-arrow-right"></i> %.min.css</code><code>*.js <i class="fa fa-long-arrow-right"></i> jsmin <i class="fa fa-long-arrow-right"></i> %.min.js</code><code>stylus <i class="fa fa-long-arrow-right"></i> cssmin <i class="fa fa-long-arrow-right"></i> %.min.css</code><code>stylus <i class="fa fa-long-arrow-right"></i> autoprefixer <i class="fa fa-long-arrow-right"></i> cssmin<br/><i class="fa fa-long-arrow-right"></i> %.cross-browser.min.css</code></pre><style>.slide#webassets_case i.fa {
+  color: #7fd7c9;
+}</style></div></section><section class="slide"><div><h2>用於 Webassets <span class="note">(in Mako template)</span></h2><pre>
+<div class="codehilite"><span class="cp">%</span><span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">webassets</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;static/components/jquery/dist/jquery.js&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s">&#39;build/js/jqeury.</span><span class="si">%(version)s</span><span class="s">.js&#39;</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="s">&#39;rjsmin&#39;</span><span class="p">)</span><span class="x"></span><br/><span class="x">        &lt;script src=&quot;</span><span class="cp">${</span><span class="n">url</span><span class="cp">}</span><span class="x">&quot;&gt;&lt;/script&gt;</span><br/><span class="cp">%</span><span class="k">endfor</span><span class="x"></span><br/><span class="x">        </span><br/></div></pre></div></section><section class="webassets_build slide"><div><h2>jqeury.%(version)s.js</h2><img src="pictures/webassets_build.png" class="pull-right"/><h3><code>=></code></h3><h3><code>jquery.a1b2c3d4.js</code></h3><p class="note">=> 避免瀏覽器暫存<br/>CSS、JS 檔</p><style>.slide.webassets_build h3 {
+  font-size: 0.7em;
+  margin: 1em 0;
+}
+.slide.webassets_build img {
+  margin-right: -2em;
+  margin-top: -4em;
+}</style></div></section><section class="webassets_build slide"><div><h2>處理 vendor 一堆 Javascript</h2><h3><code>jqeury.js, angular.js, livereload.js, ...</code></h3><h3><code>=></code></h3><h3><code>vendor.a1b2c3d4.js</code></h3><p class="note"># Django-Compressor 也行</p></div></section><section class="slide"><div><h2>小結成果 <code>II</code></h2><ol><li>有可用的 cssmin、jsmin，以及 assets version</li><li>沒有寫 grunt 或 gulp 來 build css 或 js<br/><span class="note">暫時逃過一劫<br/>（或一利：讓前端工程師來寫前端的 build）</span></li></ol></div></section>
+<section class="slide cover"><div><img src="pictures/pivot.jpg" width="100%"/></div></section><section class="slide"><div><h2>Summary: Minial Viable Frontend</h2><ul><li>編寫<strong class="yellow">快速安裝、升級</strong></li><li>修改<strong class="yellow"><code>diff</code> 很少</strong></li><li>Code Review <strong class="yellow">減少雜訊</strong></li><li>成效<strong class="yellow">輕鬆上線</strong></li></ul></div></section><section class="slide shout"><div><h2>謝謝</h2><h3 class="note next">問與答？</h3></div></section><p class="badge"><a href="#"><i class="fa fa-github fa-large"></i></a></p><div class="progress"><div></div></div><!-- Copyright © 2013 Keith Yang -->
+<script src="buildpack/shower-core/shower.min.js">
+</script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body></html>

@@ -1,0 +1,589 @@
+-namespace module="plimsolls.formatters.code2html" name="code2html"
+
+-py
+  title = u"迅速網站前端開發用 Python"
+  buildpack = 'buildpack'
+
+
+-def pivot()
+  section.slide.cover: div
+    img src="pictures/pivot.jpg" width="100%"
+
+
+doctype 5
+html lang="zh-hants"
+  head
+    title ${title} -- Keith Yang
+    meta charset="utf-8"
+    meta name="viewport" content="width=792, user-scalable=no"
+    meta http-equiv="x-ua-compatible" content="ie=edge"
+    link rel="stylesheet" href="${buildpack}/shower-ribbon/styles/screen.css"
+    link rel="stylesheet" href="${buildpack}/font-awesome/css/font-awesome.min.css"
+    link rel="stylesheet" href="pygments.css"
+
+    -sass
+      $k_yellow: #FBDC59;
+      $k_red: #86382C;
+      $k_white: #FFFFFF;
+      .yellow { color: $k_yellow; }
+      .text-right {text-align: right;}
+      .black {
+        color: black;
+      }
+      .full .progress div {
+        border-color: transparent transparent $k_yellow;
+      }
+      .center {
+        text-align:center;
+      }
+      .slide {
+        .text-left {text-align: left;}
+        background-color: $k_red;
+        color: $k_white;
+        h2 {
+          color: $k_white;
+          &.footnote {
+            font-size: 32px;
+          }
+        }
+        h3 { color: $k_white; }
+        hr {
+          color: $k_yellow;
+          border: 4px solid $k_yellow;
+        }
+        .author {
+          color: $k_yellow;
+          font-style: italic;
+        }
+        i { font-style: normal; }
+        pre {
+          font-family: monospace;
+          line-height: 40px;
+        }
+        .terminal {
+          padding: 5px;
+          font-family: monospace;
+          border-radius: 5px 5px 5px 5px;
+          background: none repeat scroll 0% 0% rgb(39, 40, 34);
+          color: rgb(248, 248, 242);
+        }
+        code, .code {
+          font-size: 1.2em;
+          font-family: monospace;
+          color: $k_yellow;
+          background: none;
+        }
+        font-size: 1.4em;
+        .note {
+          color: #7fd7c9;
+        }
+        ul li {
+            i.fa {
+              text-indent: 0;
+            }
+            strong a {
+              color: $k_yellow;
+            }
+        }
+        a {
+          background: none;
+          color:#FFF;
+          &:hover {
+            background: linear-gradient(to top, currentcolor, $k_yellow 0.09em, transparent 0.09em, transparent) repeat-x scroll 0% 0% transparent;
+          }
+        }
+        &.shout {
+          h2.small { font-size: 3em; }
+          h2.text-left {text-align: left;}
+          &.small {
+            h2 {
+              font-size: 5em;
+            }
+          }
+          h3 {
+            font-size: 1.6em;
+          }
+          ul.green li { color: $k_yellow; }
+          ul li {
+            float: left;
+            width: 196px;
+          }
+          strong {
+            text-shadow: 4px 4px black;
+            &.qna { color: $k_yellow; }
+          }
+        }
+      }
+
+
+  body.list
+
+    header.caption
+      h1 = title
+      p
+        Keith Yang
+
+    section#Cover.slide.cover: div
+        h2 迅速網站前端開發
+          br 用 Python
+        hr
+        h3.author Keith Yang
+        h4.text-center
+          a href="https://yang.keitheis.org" yang.keitheis.org
+
+      -sass
+        .text-center {text-align:center;}
+        $k_red: #86382C;
+        $k_yellow: #FBDC59;
+        .slide ol li:before, .slide ul li:before {
+            color: $k_yellow;
+        }
+        .slide:after {
+          padding: 38px 0px 0px;
+          color: $k_red;
+          width: 54px;
+          background: url('pictures/kribbon.svg') no-repeat scroll 0% 0% transparent;
+        }
+        #Cover {
+          background-color: $k_red;
+          h2 {
+            color: #F1F0E0;
+            margin:40px 0;
+            text-align:center;
+            line-height: 1.2em;
+            font-size:70px;
+          }
+          .author {
+            text-align:center;
+            color: $k_yellow;
+            margin:10px 0 0;
+          }
+        }
+
+    section.slide.cover: div
+      h2#pivot.big.black.text-right.pull-right
+        Minimal
+        br Viable
+        br Front
+      img src="pictures/pivot.jpg" width="100%"
+
+      -sass
+        $k_red: #86382C;
+        $k_yellow: #FBDC59;
+        .slide h2#pivot {
+          margin-top: 96px;
+          font-size: 3em;
+          color: $k_red;
+          text-shadow: 3px 3px $k_yellow, 6px 6px white;
+        }
+
+    section.slide: div
+      h2 Keith Yang
+      ul
+        li
+          | @keitheis
+          br
+            strong
+              a href="https://twitter.com/keitheis": i.fa.fa-twitter
+              ,
+              a href="https://bitbucket.org/keitheis": i.fa.fa-bitbucket
+              ,
+              a href="https://github.com/keitheis": i.fa.fa-github
+        li | `a href="https://www.biideal.com" biideal` coder
+        li | `a href='http://taipei.python.org.tw/' Taipei.py` co-organizer
+        li #`a href='https://tw.pycon.org/2014apac/' PyConAPAC 2014` Web Chair
+
+    section.slide.cover: div
+        img src="pictures/mecollage.png" width="100%"
+
+    section.slide.shout: div
+      h2 
+        code HTML
+
+    section.slide: div
+      h2 曾經長這樣
+      pre
+        -py
+          code = """
+          <div
+           class="CSS"
+           style="color: white">
+          <p> Hello HTML
+          """
+        == code2html.reformat('html', code)
+
+    section.slide: div
+      h2 然後世界變了
+      pre
+        -py
+          code = """
+          <div ng-app="NoNG"
+            class="col-md-6">
+          <p ng-controller="EverCtrl
+            as everCtrl">
+          {{everCtrl.hello}}
+          """
+        == code2html.reformat('javascript', code)
+      h3.note.next Pythonista: 「對啊不知道為什麼又不是 Python 3」
+
+    section#quick.slide: div
+      h2 能有多迅速？
+      ul
+        li 編寫
+          strong.yellow 又少又快
+        li 修改
+          strong.yellow 又小又快
+        li Code Review
+          strong.yellow 又少又快
+        li 成效
+          strong.yellow 又大又快又好啊！
+
+      -stylus
+        strong.yellow
+          color: #FBDC59
+
+    section.slide: div
+      h2 大綱：就是快
+      ul
+        li : strong | Templates in web frameworks
+        li : strong | Use Fabric with npm & Bower 
+        li : strong | Used with web assets
+        li.next : strong : code : | from all import profit, fun
+
+    section.slide: div
+      h2 Templates in web framework
+      ul
+        li Jinja2 `span.note in Flask`
+        li Mako `span.note in Pylons, Pyramid, ...`
+        li Plim `span.note in ...` `span.note.next biideal`
+        li Django template `span.note in Django.`
+
+    section.slide: div
+      h2 發生的時機
+      ul
+        li 後端內建
+        li 與網站框架緊密結合
+          br : span.note 直接調用後端的 Data Model
+
+    section.slide: div
+      h2 Some popular frontend packages
+      ul
+        li | AngularJS, Vue.js
+        li | Bootstrap, Ink
+        li | jQuery
+      h3.note then...
+
+    section.slide.shout: div
+      h2 Client side template
+      h3.pull-right.note MVC, MVVC, MVP, *.*
+
+    section.slide.shout: div
+      h2 JS? Javascript?
+        span.note Waht?
+
+    section.slide.shout: div
+      h2 In Python app?
+
+    section.slide.shout: div
+      h2 是的 `span.yellow <| |3`
+      h3.pull-right.note AND RESTFUL APP. THANKS.
+
+    section.slide: div
+      h2 What, Why, When, Who, Where, How (5W1H)
+      ul.next
+        li 前端工程師說要用的時候
+        li.next 老闆說我們也要有的時候
+        li.next 你說 `strong.yellow 怎麼可能` 的時候
+
+    section.slide.shout: div
+      h2.next : span.yellow 怎麼可能怎麼可能怎麼可能怎麼可能怎麼可能怎麼可能怎麼可能怎麼可能
+      img src="pictures/everypossible.jpg" width="60%"
+
+    section.slide.shout: div
+      h2
+        span.note 回到現實
+        br
+        安裝吧`span.yellow 寶貝.js`
+
+    section.slide.shout: div
+      h3: code.text-left.small.note 「可是 js...
+        br &nbsp;&nbsp;我過慣好日子了。」
+      code pip install -r requirement.txt
+
+    = pivot()
+
+    section.slide: div
+      h2 手動安裝模式
+      ol
+        li 下載回來
+        li 放入 static 資料夾
+        li Commit 到版本控制系統裡
+
+    section.slide: div
+      h2 手動
+        span.yellow 更新
+        模式
+      ol.next
+        li 下載回來？
+        li 放入 static 資料夾？
+        li Commit 到版本控制系統裡？
+
+    section.slide.cover: div
+      img src="pictures/changed_vendor.png" width="100%"
+
+    section.slide: div
+      h2 剛剛是`span.yellow 一個`套件版本更新
+      ul
+        li AngularJS 版本加個 `code 0.?.?`
+        li 成千上萬行 code 請 review！
+        li | == 超大量的謝謝指教
+          span.note.next 啊啊啊啊啊啊啊
+
+    section.slide: div
+      h2.note npm npm npm npm npm npm npm npm npm
+        img src="pictures/npm.png" width="100%" alt="npm"
+      h3.note | node.js 內建用來管理套件的程式
+
+    section.slide: div
+      h2 : code | static/package.json
+      pre
+        -py
+          code = """
+          {
+            ...
+            "devDependencies": {
+              "bower": "*",
+            ...
+          """
+        == code2html.reformat('javascript', code)
+      h3.note 這裡用來放 bower 之外用到的東西
+
+    section.slide: div
+      h2 用 npm 安裝 Bower
+      ol
+        li cd static && npm install
+        li Bower 指令會裝到 `code static/node_modules/.bin/bower`
+
+    section.slide: div
+      h2 : code | npm in fabfile.py
+      pre
+        -py
+          code = """
+          from fabric.api import lcd, local
+          def npm(*args):
+              cmd = 'npm '
+              with lcd("myapp/static"):
+                  local(cmd + ' '.join(args))
+          """
+        == code2html.reformat('python', code)
+
+    section.slide: div
+      h2 用 Fabric 來跑 npm
+      pre
+        code | fab npm:install
+        code | fab npm:update
+      h3.note TBD: `code.note pip install invoke`
+
+    section.slide: div
+      h2 Bower
+        img src="pictures/bower-logo.png" width="100%" alt="Bower"
+
+    section.slide: div
+      h2 Bower
+      h3 | node.js 外建用來管理（前端）套件的程式
+      h3.note bower 基本指令
+      pre
+        code | bower install
+        code | bower update
+
+    section.slide.shout: div
+      h2 用 Bower 來
+        br 安裝個 `span.yellow jQuery`
+
+    section.slide: div
+      h2 : code | static/bower.json {
+      pre
+        -py
+          code = """
+            ...
+            "dependencies": {
+              "jquery": "*",
+              ...
+            "ignore": [
+              "**/.*",
+              "node_modules",
+              "packages"
+            ],
+          """
+        == code2html.reformat('javascript', code)
+
+    section.slide: div
+      h2 全手動跑 bower
+      pre
+        code cd myapp/static
+        code node_modules/.bin/bower install
+        code node_modules/.bin/bower update
+
+    section.slide: div
+      h2 : code | Bower in fabfile.py
+      pre
+        -py
+          code = """
+          from fabric.api import lcd, local
+          def bower(*args):
+              cmd = 'node_modules/.bin/bower '
+              with lcd("myapp/static"):
+                  local(cmd + ' '.join(args))
+          """
+        == code2html.reformat('python', code)
+
+    section.slide: div
+      h2 用 Fabric 來跑 bower
+      pre
+        code | fab bower:install
+        code | fab bower:update
+      h3 來來來，大家一起來
+      pre
+        code | fab npm:install bower:install
+
+    section.slide: div
+      h2 看 Bower 安裝到哪
+      p Default:
+        br : code static/components/{package}
+        br `span.note # 可以在很不明顯的 .bowerrc 裡更改`
+
+    section.slide: div
+      h2 例：用 bower 裝好的 jQuery
+      pre
+        -py
+          code = u"""
+          static/components/jquery/
+          ├── MIT-LICENSE.txt
+          ├── bower.json
+          ├── dist
+          │   ├── jquery.js
+          │   ├── jquery.min.js
+          │   └── jquery.min.map
+          ...
+          """
+        == code2html.reformat('sh', code)
+
+    section.slide: div
+      h2 小結成果
+      ol
+        li 前端套件版本更新容易
+        li 不用 commit 前端套件
+        li local 與 production 這下都要 build 了
+
+    section.slide: div
+      h2 Minimal `code | diff`
+      pre
+        -py
+          code = u"""
+                  -    "angular": "~1.2.12"
+                  +    "angular": "~1.2.16"
+                  """
+        == code2html.reformat('diff', code)
+
+    = pivot()
+
+    section.slide: div
+      h2 直接放到 HTML 中
+      pre
+        -py
+          code = u"""
+                  ...
+                  <script src="static/components/
+                  jquery/dist/jquery.min.js">
+                  </script>
+                  ...
+                  """
+        == code2html.reformat('html', code)
+
+    section.slide: div
+      h2 Webassets 簡介
+      ol
+        li “Asset management for Python”
+        li 處理前端的 Javascript、CSS 等
+
+    section#webassets_case.slide: div
+      h2 Webassets 使用案例
+      h3.note | %: %version
+      pre
+        code | *.css `i.fa.fa-long-arrow-right` cssmin `i.fa.fa-long-arrow-right` %.min.css
+        code | *.js `i.fa.fa-long-arrow-right` jsmin `i.fa.fa-long-arrow-right` %.min.js
+        code | stylus `i.fa.fa-long-arrow-right` cssmin `i.fa.fa-long-arrow-right` %.min.css
+        code | stylus `i.fa.fa-long-arrow-right` autoprefixer `i.fa.fa-long-arrow-right` cssmin
+          br `i.fa.fa-long-arrow-right` %.cross-browser.min.css
+      -stylus
+        .slide#webassets_case i.fa
+          color: #7fd7c9
+
+    section.slide: div
+      h2 用於 Webassets `span.note | (in Mako template)`
+      pre
+        -py
+          code = u"""
+                  %for url in webassets(request, "static/components/jquery/dist/jquery.js", ..., output='build/js/jqeury.%(version)s.js', filters='rjsmin')
+                  <script src="${url}"></script>
+                  %endfor
+                  """
+        == code2html.reformat('mako', code)
+
+    section.webassets_build.slide: div
+      h2 jqeury.%(version)s.js
+      img.pull-right src="pictures/webassets_build.png"
+      h3 : code | =>
+      h3 : code | jquery.a1b2c3d4.js
+      p.note
+         | => 避免瀏覽器暫存
+         br CSS、JS 檔
+      -stylus
+        .slide.webassets_build
+          h3
+            font-size: 0.7em
+            margin: 1em 0
+          img
+            margin-right: -2em
+            margin-top: -4em
+
+    section.webassets_build.slide: div
+      h2 處理 vendor 一堆 Javascript
+      h3 : code | jqeury.js, angular.js, livereload.js, ...
+      h3 : code | =>
+      h3 : code | vendor.a1b2c3d4.js
+      p.note # Django-Compressor 也行
+
+    section.slide: div
+      h2 小結成果 `code II`
+      ol
+        li 有可用的 cssmin、jsmin，以及 assets version
+        li 沒有寫 grunt 或 gulp 來 build css 或 js
+          br : span.note 暫時逃過一劫
+            br（或一利：讓前端工程師來寫前端的 build）
+
+    = pivot()
+
+    section.slide: div
+      h2 Summary: Minial Viable Frontend
+      ul
+        li 編寫
+          strong.yellow 快速安裝、升級
+        li 修改
+          strong.yellow : | `code | diff` 很少
+        li Code Review `strong.yellow 減少雜訊`
+        li 成效
+          strong.yellow 輕鬆上線
+
+    section.slide.shout: div
+      h2 謝謝
+      h3.note.next : 問與答？
+
+    p.badge
+      a href="#" `i.fa.fa-github.fa-large`
+
+    .progress: div
+
+    <!-- Copyright © 2013 Keith Yang -->
+    script src="${buildpack}/shower-core/shower.min.js"
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
