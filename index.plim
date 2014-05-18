@@ -189,9 +189,9 @@ html lang="zh-hants"
               a href="https://bitbucket.org/keitheis": i.fa.fa-bitbucket
               ,
               a href="https://github.com/keitheis": i.fa.fa-github
-        li | `a href="https://www.biideal.com" biideal` coder
         li | `a href='http://taipei.python.org.tw/' Taipei.py` co-organizer
         li #`a href='https://tw.pycon.org/2014apac/' PyConAPAC 2014` Web Chair
+        li | `a.biideal href="https://www.biideal.com" biideal` coder
 
     section.slide.cover: div
         img src="pictures/mecollage.png" width="100%"
@@ -574,6 +574,13 @@ html lang="zh-hants"
         li Code Review `strong.yellow 減少雜訊`
         li 成效
           strong.yellow 輕鬆上線
+
+    section.slide.shout: div
+      h2 | `span.biideal biideal`
+        br is hiring
+      -stylus
+        .biideal, a.biideal
+          color: #00a2e1
 
     section.slide.shout: div
       h2 謝謝
